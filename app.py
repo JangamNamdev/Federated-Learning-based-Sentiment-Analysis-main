@@ -3,6 +3,16 @@ import streamlit as st
 import torch
 from transformers import DistilBertTokenizer
 from model import DistilBERTSentiment
+import os
+import urllib.request
+import streamlit as st
+
+MODEL_PATH = "global_model.pth"
+MODEL_URL = "https://drive.google.com/uc?export=download&id=1NhkJVVGCLy4LVMt3lsxQlW33CSXBkwcj"
+
+if not os.path.exists(MODEL_PATH):
+    st.write("Downloading model... please wait ⏳")
+    urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
 
 # ------------------------
 # Configuration
